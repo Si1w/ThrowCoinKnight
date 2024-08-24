@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://66e5u6km0wgk"]
+
+[ext_resource type="Script" path="res://scripts/now_weapons.gd" id="1_fui0v"]
+[ext_resource type="PackedScene" uid="uid://7wwyjhyvvemn" path="res://scenes/weapon.tscn" id="2_h3r32"]
+
+[node name="now_weapons" type="Node2D"]
+script = ExtResource("1_fui0v")
+
+[node name="weapon" parent="." instance=ExtResource("2_h3r32")]

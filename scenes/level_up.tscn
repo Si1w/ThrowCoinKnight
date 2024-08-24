@@ -1,0 +1,227 @@
+[gd_scene load_steps=8 format=3 uid="uid://byxwju1047hea"]
+
+[ext_resource type="Script" path="res://scripts/level_up.gd" id="1_jppok"]
+[ext_resource type="FontFile" uid="uid://djxb0r8wjpbay" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_lefql"]
+[ext_resource type="Texture2D" uid="uid://cxatoq6tnckrq" path="res://assets/IconGodotNode/node_2D/basic_dmg.png" id="2_1xcsk"]
+[ext_resource type="Texture2D" uid="uid://c6korb5qdka3x" path="res://assets/brackeys_platformer_assets/sprites/fruit.png" id="3_0jyuc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkvue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbpsl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wqaf"]
+
+[node name="level_up" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_jppok")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.372549)
+
+[node name="item_choose" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -140.0
+offset_right = 1443.0
+offset_bottom = 140.0
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+columns = 4
+
+[node name="item_template" type="Panel" parent="item_choose"]
+custom_minimum_size = Vector2(2.08165e-12, 280)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="item_choose/item_template"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = -30.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_lefql")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkvue")
+text = "Choose"
+
+[node name="MarginContainer" type="MarginContainer" parent="item_choose/item_template"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="item_choose/item_template/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="item_choose/item_template/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_1xcsk")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="item_choose/item_template/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="item_choose/item_template/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Attack"
+
+[node name="Label2" type="Label" parent="item_choose/item_template/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "level up"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="item_choose/item_template"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = 15.0
+offset_right = -31.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=green]+3[/color] dmg"
+fit_content = true
+
+[node name="update" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 250.0
+offset_right = 182.0
+offset_bottom = 301.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_lefql")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL UP!"
+
+[node name="refresh" type="Button" parent="."]
+offset_left = 615.0
+offset_top = 729.0
+offset_right = 900.0
+offset_bottom = 786.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_lefql")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lbpsl")
+text = "Refresh -2  "
+alignment = 0
+
+[node name="item" type="TextureRect" parent="refresh"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -19.5
+offset_bottom = 18.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_0jyuc")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -309.0
+offset_right = -26.0
+offset_bottom = 309.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="attr_list" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="attr_template" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/attr_list"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="Panel/MarginContainer/ScrollContainer/attr_list/attr_template"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Max. HP"
+
+[node name="value" type="Label" parent="Panel/MarginContainer/ScrollContainer/attr_list/attr_template"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 11.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_lefql")
+theme_override_font_sizes/font_size = 50
+text = "Attribute"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="continue" type="Button" parent="."]
+offset_left = 1548.0
+offset_top = 936.0
+offset_right = 1821.0
+offset_bottom = 1022.0
+theme_override_fonts/font = ExtResource("1_lefql")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wqaf")
+text = "Continue"
+
+[connection signal="pressed" from="refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]

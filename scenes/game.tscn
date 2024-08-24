@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvb3ac0pwfp76"]
+
+[ext_resource type="PackedScene" uid="uid://cqnxsir842n5j" path="res://scenes/map.tscn" id="1_b6on8"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_yb2d3"]
+[ext_resource type="PackedScene" uid="uid://bhp3fssmf5mox" path="res://scenes/player.tscn" id="2_lpubp"]
+[ext_resource type="PackedScene" uid="uid://dinm67ke2dkt4" path="res://scenes/now_enemies.tscn" id="3_lasg2"]
+[ext_resource type="PackedScene" uid="uid://bcxl81ssuov36" path="res://scenes/game_ui.tscn" id="5_mk237"]
+[ext_resource type="PackedScene" uid="uid://byxwju1047hea" path="res://scenes/level_up.tscn" id="6_ef2ib"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_yb2d3")
+
+[node name="Map" parent="." instance=ExtResource("1_b6on8")]
+
+[node name="Player" parent="." instance=ExtResource("2_lpubp")]
+position = Vector2(1232, 821)
+scale = Vector2(8, 8)
+
+[node name="now_enemies" parent="." instance=ExtResource("3_lasg2")]
+
+[node name="GameUI" parent="." instance=ExtResource("5_mk237")]
+
+[node name="level_up" parent="." instance=ExtResource("6_ef2ib")]
+visible = false
+
+[connection signal="restart" from="Player" to="." method="_on_player_restart"]
+[connection signal="round_end" from="GameUI" to="." method="_on_game_ui_round_end"]
+[connection signal="continue_game" from="level_up" to="." method="_on_level_up_continue_game"]
