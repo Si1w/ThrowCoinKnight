@@ -23,6 +23,5 @@ scale = Vector2(8, 8)
 [node name="level_up" parent="." instance=ExtResource("6_ef2ib")]
 visible = false
 
-[connection signal="restart" from="Player" to="." method="_on_player_restart"]
 [connection signal="round_end" from="GameUI" to="." method="_on_game_ui_round_end"]
 [connection signal="continue_game" from="level_up" to="." method="_on_level_up_continue_game"]
