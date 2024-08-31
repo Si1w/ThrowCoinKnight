@@ -91,7 +91,7 @@ text = "Attack"
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "level up"
+text = "Level Up"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="item_choose/item_template"]
 layout_mode = 1
