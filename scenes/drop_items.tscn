@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ortls"]
-radius = 37.5925
+radius = 34.2345
 
 [node name="drop_items" type="CharacterBody2D" groups=["drop_item"]]
 z_index = 13
@@ -34,5 +34,5 @@ animation = &"fruit"
 autoplay = "fruit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.49012e-08)
+position = Vector2(-3, -4)
 shape = SubResource("CircleShape2D_ortls")
