@@ -22,8 +22,7 @@ func init_attr():
 	max_exp = 5
 	level = 1
 	fruit = 0
-	pass
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
@@ -74,6 +73,36 @@ func _on_stop_body_entered(body):
 	if body.is_in_group("enemy"):
 		self.now_hp -= 1
 		if now_hp <= 0:
-			#get_tree().reload_current_scene()
+			now_hp = 0
 			emit_signal("player_dead")
 	pass # Replace with function body.
+	
+## revert the player status to the start of the round
+func respawn_player():
+	now_exp = temp_now_exp   # clear the exp
+	max_exp = temp_max_exp
+	max_hp = temp_max_hp  # reset the hp
+	now_hp = max_hp  
+	fruit = temp_fruit
+	level = temp_level
+	basic_dmg = temp_basic_dmg
+	basic_dmg_multiple = temp_basic_dmg_multiple
+	fruit_get = temp_fruit_get
+	speed = temp_speed
+	exp_get = temp_exp_get
+
+
+func mem_player_state():
+	temp_speed = speed
+	temp_now_hp = now_hp
+	temp_max_hp = max_hp
+	temp_now_exp = now_exp
+	temp_max_exp = max_exp
+	temp_exp_get = exp_get
+	temp_level = level
+	temp_fruit = fruit
+	temp_fruit_get = fruit_get
+	temp_basic_dmg = basic_dmg
+	temp_basic_dmg_multiple = basic_dmg_multiple
+	
+	
