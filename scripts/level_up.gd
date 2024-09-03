@@ -182,5 +182,6 @@ func _on_refresh_pressed():
 	pass # Replace with function body.
 
 func _on_continue_pressed():
+	player.mem_player_state()
 	emit_signal("continue_game")
 	pass # Replace with function body.

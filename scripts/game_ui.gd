@@ -31,6 +31,10 @@ func init_round():
 	timer.start()
 	pass
 
+# Restart the current round
+func restart_round():
+	round_time = 30
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,3 +54,9 @@ func _on_timer_timeout():
 		timer.stop()
 		emit_signal("round_end")
 	pass # Replace with function body.
+	
+func timer_stop():
+	timer.stop()
+	
+func timer_start():
+	timer.start()

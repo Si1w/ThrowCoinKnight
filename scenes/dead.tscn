@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cujutnrqer8pd"]
+
+[ext_resource type="FontFile" uid="uid://djxb0r8wjpbay" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_m4dg0"]
+[ext_resource type="Script" path="res://scripts/dead.gd" id="1_ny8rc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecx6g"]
+
+[node name="Dead" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_ny8rc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.372549)
+
+[node name="dead_label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 250.0
+offset_right = 182.0
+offset_bottom = 301.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_m4dg0")
+theme_override_font_sizes/font_size = 50
+text = "YOU DIED!"
+
+[node name="restart_btn" type="Button" parent="."]
+offset_left = 801.0
+offset_top = 727.0
+offset_right = 1086.0
+offset_bottom = 784.0
+theme_override_fonts/font = ExtResource("1_m4dg0")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ecx6g")
+text = "Respawn"
+
+[connection signal="pressed" from="restart_btn" to="." method="_on_restart_pressed"]

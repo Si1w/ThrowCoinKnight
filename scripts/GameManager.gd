@@ -49,3 +49,26 @@ func _on_level_up_continue_game():
 	$now_enemies.delete_enemies()
 	pass # Replace with function body.
 
+
+## When the player is dead
+func _on_player_dead():
+	get_tree().paused = true
+	$GameUI.timer_stop()
+	$Dead.init()
+	
+
+## restart the game
+func _on_dead_restart_game():
+	get_tree().paused = false
+	$Dead.hide()
+	$now_enemies.delete_enemies()
+	$Player.respawn_player()
+	$GameUI.restart_round()
+	var drop_items = get_tree().get_nodes_in_group("drop_item")
+	for drop_item in drop_items:
+		if drop_item.get_collision_layer_value(5):
+			self.remove_child(drop_item)
+			drop_item.queue_free()
+	
+	
+

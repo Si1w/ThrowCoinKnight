@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvb3ac0pwfp76"]
+[gd_scene load_steps=8 format=3 uid="uid://dvb3ac0pwfp76"]
 
 [ext_resource type="PackedScene" uid="uid://cqnxsir842n5j" path="res://scenes/map.tscn" id="1_b6on8"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_yb2d3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dinm67ke2dkt4" path="res://scenes/now_enemies.tscn" id="3_lasg2"]
 [ext_resource type="PackedScene" uid="uid://bcxl81ssuov36" path="res://scenes/game_ui.tscn" id="5_mk237"]
 [ext_resource type="PackedScene" uid="uid://byxwju1047hea" path="res://scenes/level_up.tscn" id="6_ef2ib"]
+[ext_resource type="PackedScene" uid="uid://cujutnrqer8pd" path="res://scenes/dead.tscn" id="7_rcswq"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yb2d3")
@@ -23,5 +24,10 @@ scale = Vector2(8, 8)
 [node name="level_up" parent="." instance=ExtResource("6_ef2ib")]
 visible = false
 
+[node name="Dead" parent="." instance=ExtResource("7_rcswq")]
+visible = false
+
+[connection signal="player_dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="round_end" from="GameUI" to="." method="_on_game_ui_round_end"]
 [connection signal="continue_game" from="level_up" to="." method="_on_level_up_continue_game"]
+[connection signal="respawn" from="Dead" to="." method="_on_dead_restart_game"]
