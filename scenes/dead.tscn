@@ -6,6 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecx6g"]
 
 [node name="Dead" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_ny8rc")
 
 [node name="ColorRect" type="ColorRect" parent="."]

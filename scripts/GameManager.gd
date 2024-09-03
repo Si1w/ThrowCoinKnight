@@ -52,13 +52,13 @@ func _on_level_up_continue_game():
 
 # When the player is dead
 func _on_player_dead():
-	print("Player dead")
 	get_tree().paused = true
 	$GameUI.timer_stop()
 	$Dead.init()
 	
+	
 func _on_dead_restart_game():
-	print("Respawn btn pressed")
+	get_tree().paused = false
 	$Dead.hide()
 	$now_enemies.delete_enemies()
 	$Player.now_hp = $Player.max_hp
@@ -68,6 +68,6 @@ func _on_dead_restart_game():
 		if drop_item.get_collision_layer_value(5):
 			self.remove_child(drop_item)
 			drop_item.queue_free()
-	get_tree().paused = false
+	
 	
 

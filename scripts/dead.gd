@@ -15,8 +15,7 @@ func _process(delta):
 	
 func init():
 	self.show()
-	dead_label.show()
-	restart_btn.show()
+
 
 func _on_restart_pressed():
 	emit_signal("respawn")
