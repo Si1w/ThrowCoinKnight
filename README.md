@@ -1,7 +1,7 @@
 # ThrowCoinKnight
 
 ## Play
-Download **RunGame.exe** and **RunGame.pck** in [Releases](#)
+Download **RunGame.exe** and **RunGame.pck** in [Releases](https://github.com/Si1w/ThrowCoinKnight/releases/tag/V0.1.1)
 
 ## GameView
 ![img](./GameView.png "GameView")
